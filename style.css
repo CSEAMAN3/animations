@@ -1,0 +1,144 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  padding: 2rem;
+  padding-bottom: 5rem;
+}
+
+img {
+  height: 300px;
+  width: 40%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* transform distorts elements from thier original size / shape / position. transform is the property name however it can have different values such as rotate, scale, skew, and translate */
+
+img:first-child:hover {
+  /* transform: rotate(30deg); */
+  /* transform: scale(1.5); */
+  /* transform: translateX(150px); */
+  /* transform: skewX(30deg); */
+  transform: rotate(30deg) scale(1.5) translateX(150px) skewX(30deg);
+  transition: 2s;
+}
+
+img:last-child:hover {
+  /* transform: rotate(-330deg); */
+  /* transform: scale(0.5); */
+  /* transform: translate(-250px, 400px); */
+  /* transform: skew(30deg, 30deg); */
+  transform: rotate(-330deg) scale(0.5) translate(-250px, 400px) skew(30deg, 30deg);
+  transition: 2000ms;
+}
+
+/* transitions alter the appearance of an element when the state changes. You can use pseudo-selectors to target different states (like :hover, :focus :active and :target) */
+
+/* there are 3 major properties to set when you use transition */
+
+/* transition-property (which property / properties you want to transition)*/
+
+/* transition-duration  (how long you want the transition to take, 2s is 2 seconds and 350ms is milliseconds)*/
+
+/* transition-timing-function (how does the rate of change happen over the duration of the transition) */
+
+.rounding {
+  margin-top: 2rem;
+  background-color: #0394e6;
+  width: 200px;
+  height: 200px;
+  border-radius: 0;
+  transition: 2s;
+}
+
+.rounding:hover {
+  transition-property: border-radius, background-color;
+  transition-duration: 2s, 6s;
+  transition-timing-function: ease-in, linear;
+  border-radius: 50%;
+  background-color: #f03c1d;
+}
+
+.doNothing {
+  background-color: #a570da;
+  opacity: 0.5;
+  outline: 2px soild #ffffff;
+  transition: opacity 100ms linear;
+}
+
+.doNothing:hover {
+  /* transition-property: opacity;
+  transition-duration: 100ms;
+  transition-timing-function: linear; */
+  opacity: 1;
+}
+
+.doNothing:active {
+  transition-property: outline;
+  transition-duration: 1000ms;
+  transition-timing-function: linear;
+  outline: 12px solid hotpink;
+}
+
+/* animations alter an element for a given number of iterations. */
+/* For animations you need to define: */
+
+/* a named animation, using the @keyframes rules, that says where to start and where to end, and optionaly any mid points inbetween */
+
+/* which element is using the named animation (animation-name) */
+
+/* how long the animation should run (animation-duration) */
+
+.animation {
+  margin-top: 2rem;
+  background-color: #cccccc;
+  border: 2px solid #bbbbbb;
+  /* border-radius: 3%; */
+  width: 400px;
+  height: 400px;
+}
+
+.animationElement {
+  width: 10%;
+  height: 10%;
+  background-color: #0c8f16;
+  animation-name: pigsMightFly;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+.sams-h1 {
+  z-index: 1;
+}
+
+@keyframes pigsMightFly {
+  0% {
+    left: 0;
+    top: 0;
+    background-color: #0c8f16;
+  }
+  25% {
+    left: 90%;
+    top: 90%;
+    background-color: tomato;
+  }
+  50% {
+    left: 90%;
+    top: 0;
+    background-color: yellow;
+  }
+  75% {
+    left: 0;
+    top: 90%;
+    background-color: indigo;
+  }
+  100% {
+    left: 0;
+    top: 0;
+    background-color: #0c8f16;
+  }
+}
